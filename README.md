@@ -1,10 +1,10 @@
 🔐 Password Hasher (SHA-256)
-A simple Python tool to securely hash passwords using SHA-256, with optional salting support.
+A simple Python tool to securely hash passwords using SHA-256, with salting support.
 
 🚀 Features
 SHA-256 Hashing – Converts plaintext passwords into irreversible cryptographic hashes.
 
-Optional Salting – Adds a salt value to prevent rainbow table attacks.
+Salting – Adds a salt value to prevent rainbow table attacks.
 
 Lightweight & Portable – Single Python script, no dependencies.
 
@@ -27,7 +27,7 @@ Enter password to hash: 'SurfNet2024'
 Output:
 Hashed password (SHA-256): a1b2c3... (64-char hex string)  
 
-Advanced: Adding Salt
+Adding Salt
 python
 Modify the code to include a salt:
 salt = "yoursalt123"  
