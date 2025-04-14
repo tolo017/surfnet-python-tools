@@ -2,7 +2,9 @@ import hashlib
 
 def hash_password(password):
     # Encode the password to bytes, hash it, and return hex digest
-    return hashlib.sha256(password.encode()).hexdigest()
+    salt = "yoursalt123"  
+    hashed = hashlib.sha256((password + salt).encode()).hexdigest() 
+    return hashed
 
 user_input = input("Enter a password to hash: ")
 print("Hashed password (SHA-256):", hash_password(user_input))
