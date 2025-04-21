@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Port Scanner Web App</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <h1>🔍 Port Scanner Web App</h1>
+    
+    <div class="scanner-form">
+        <form method="POST">
+            <input type="text" name="target" placeholder="Enter IP or Domain (e.g., 192.168.1.1)" required>
+            <button type="submit">Scan Ports</button>
+        </form>
+    </div>
+
+    {% if results %}
+    <div class="results">
+        <h2>Scan Results for {{ target }}</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Port</th>
+                    <th>State</th>
+                    <th>Service</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for result in results %}
+                <tr>
+                    <td>{{ result.port }}</td>
+                    <td class="{% if result.state == 'open' %}open{% else %}closed{% endif %}">
+                        {{ result.state }}
+                    </td>
+                    <td>{{ result.service }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {% endif %}
+
+    <!-- Optional: Add JS later -->
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
